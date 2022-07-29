@@ -3,7 +3,8 @@
 const vscode = require('vscode');
 const translate = require('./Utils/Translate/translate');
 const editor = require('./Utils/Editor');
-
+const tts = require('./Utils/TTS/tts');
+const cpp = require('./Utils/cpp/cpp');
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
@@ -22,6 +23,15 @@ function activate(context) {
 	let disposable = vscode.commands.registerCommand('copilottranslate.translateSelection', function () {
 		const selectedText = editor.getSeletion();
 		translate.translateText(selectedText);
+	});
+	let TTS = vscode.commands.registerCommand('copilottranslate.TTS', function () {
+		const selectedText = editor.getSeletion();
+
+		editor.messageBox(tts.getTTSLink(selectedText));
+	});
+	let gcc = vscode.commands.registerCommand('copilottranslate.gcc', function () {
+		cpp.gccRun();
+		//editor.messageBox(editor.getCurrentFilePath());
 	});
 
 	context.subscriptions.push(disposable);
