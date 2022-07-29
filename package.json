@@ -1,6 +1,6 @@
 {
-  "name": "copilottranslate",
-  "displayName": "CopilotTranslate",
+  "name": "IIATools",
+  "displayName": "IIATools",
   "description": "translate sistem for language input copilot",
   "version": "0.0.1",
   "engines": {
@@ -10,31 +10,36 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:copilottranslate.translateSelection",
-    "onCommand:copilottranslate.TTS",
-    "onCommand:copilottranslate.gcc"
+    "onCommand:IIATools.translateSelection",
+    "onCommand:IIATools.TTS",
+    "onCommand:IIATools.gcc"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "copilottranslate.translateSelection",
+        "command": "IIATools.translateSelection",
         "title": "translate selected text to english"
       },
       {
-        "command": "copilottranslate.TTS",
+        "command": "IIATools.TTS",
         "title": "text to speech"
       },
       {
-        "command": "copilottranslate.gcc",
+        "command": "IIATools.gcc",
         "title": "compile and run gcc "
       }
     ],
     "keybindings": [
       {
-        "command": "copilottranslate.translateSelection",
+        "command": "IIATools.translateSelection",
         "key": "ctrl+alt+t",
         "mac": "shift+cmd+t"
+      },
+      {
+        "command": "IIATools.gcc",
+        "key": "ctrl+alt+c",
+        "mac": "shift+cmd+c"
       }
     ]
   },

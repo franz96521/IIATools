@@ -8,7 +8,7 @@ npm install -g vsce
 ```
 # compile extension 
 ```cmd
-cd copilottranslate
+cd IIATools
 vsce package
 (optional) vsce publish
 ```

@@ -15,21 +15,21 @@ function activate(context) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "copilottranslate" is now active!');
+	console.log('Congratulations, your extension "IIATools" is now active!');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('copilottranslate.translateSelection', function () {
+	let disposable = vscode.commands.registerCommand('IIATools.translateSelection', function () {
 		const selectedText = editor.getSeletion();
 		translate.translateText(selectedText);
 	});
-	let TTS = vscode.commands.registerCommand('copilottranslate.TTS', function () {
+	let TTS = vscode.commands.registerCommand('IIATools.TTS', function () {
 		const selectedText = editor.getSeletion();
 
 		editor.messageBox(tts.getTTSLink(selectedText));
 	});
-	let gcc = vscode.commands.registerCommand('copilottranslate.gcc', function () {
+	let gcc = vscode.commands.registerCommand('IIATools.gcc', function () {
 		cpp.gccRun();
 		//editor.messageBox(editor.getCurrentFilePath());
 	});
