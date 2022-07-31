@@ -4,6 +4,7 @@ this extension helps to translate from your source language to english any secti
 ```cmd 
 npm install -g yo generator-code
 npm install bing-translate-api
+npm install google-tts-api
 npm install -g vsce
 ```
 # compile extension 

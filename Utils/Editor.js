@@ -16,27 +16,29 @@ function messageBox(message) {
 function getCurrentFilePath() {
     return editor.document.uri.fsPath;
 }
-function createTerminal(name) {
+function createTerminalCMD(name) {
     var flag = false;
     vscode.window.terminals.forEach(terminal => {
         if (terminal.name === name) {
-            terminal.sendText("cd");
             flag = true;
             vscode.window.showInformationMessage("Terminal already exists");
         }
     });
     if (!flag) {
-        vscode.window.createTerminal(name);
+        vscode.window.createTerminal(name, 'CMD');
         vscode.window.showInformationMessage("Terminal created");
     }
 }
-function sendComandToTerminal(comand, name) {
-    createTerminal(name);
+function sendComandToTerminalCMD(comand, name) {
+    createTerminalCMD(name);
     vscode.window.terminals.forEach(terminal => {
         if (terminal.name === name) {
+            terminal.show(true);
             terminal.sendText(comand);
         }
     });
+} function sendComandcurrentTerminal(comand) {
+    vscode.window.activeTerminal.sendText(comand);
 }
 
-module.exports = { getSeletion, messageBox, replaceSelection, getCurrentFilePath, createTerminal, sendComandToTerminal };
+module.exports = { getSeletion, messageBox, replaceSelection, getCurrentFilePath, createTerminalCMD, sendComandToTerminalCMD, sendComandcurrentTerminal };
